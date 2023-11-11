@@ -1,0 +1,9 @@
+O projeto é um sistema de consulta médica que agiliza o atendimento dos pacientes em uma clínica. O sistema tem as entidades Paciente, Médico, agendaSaude, Enfermeiro, Consulta e Recepcionista. O sistema permite que os pacientes agendem as consultas pelo site, confirmando a disponibilidade dos médicos e dos consultórios. O sistema também envia lembretes e relatórios das consultas e dos procedimentos para os pacientes por e-mail. No dia da consulta, o paciente se apresenta na recepção e é encaminhado para o consultório. O médico faz a consulta e registra os dados no sistema.
+(Essa é a ideia, algumas coisas podem mudar com o andamento do desenvolvimento do projeto)
+
+--------------------------------------------------------------------------------------------------------
+Responsaveis pelas classes principais
+Antonio Guedes - Médico
+Guilherme Ribas - Recepcionista
+Heitor Leander - Paciente
+Rodrigo Luz - Enfermeiro

@@ -1,42 +1,40 @@
 package Consulta;
 
-public class AgendaSaude {
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class AgendaSaude extends Medico {
 	   // Atributos
-	   private int codigoDoutor;
-	   private String data;
-	   private String hora;
+	   private LocalDate data;
+	   private LocalTime hora;
 	   private String tipoConsulta;
+	   private int numeroConsultorio;
+	   
 
 	   // Construtor
-	   public AgendaSaude(int codigoDoutor, String data, String hora, String tipoConsulta) {
-	       this.codigoDoutor = codigoDoutor;
-	       this.data = data;
-	       this.hora = hora;
-	       this.tipoConsulta = tipoConsulta;
+	   public AgendaSaude(int codigoDoutor, String nome, String especialidade, LocalDate data,
+	   LocalTime hora, String tipoConsulta, int numeroConsultorio) {
+			super(codigoDoutor, nome, especialidade);
+	    	this.data = data;
+	    	this.hora = hora;
+	    	this.tipoConsulta = tipoConsulta;
+			this.numeroConsultorio = numeroConsultorio;
 	   }
 
 	   // Getters e setters
-	   public int getCodigoDoutor() {
-	       return codigoDoutor;
-	   }
-
-	   public void setCodigoDoutor(int codigoDoutor) {
-	       this.codigoDoutor = codigoDoutor;
-	   }
-
-	   public String getData() {
+	   public LocalDate getData() {
 	       return data;
 	   }
 
-	   public void setData(String data) {
+	   public void setData(LocalDate data) {
 	       this.data = data;
 	   }
 
-	   public String getHora() {
+	   public LocalTime getHora() {
 	       return hora;
 	   }
 
-	   public void setHora(String hora) {
+	   public void setHora(LocalTime hora) {
 	       this.hora = hora;
 	   }
 
@@ -47,4 +45,12 @@ public class AgendaSaude {
 	   public void setTipoConsulta(String tipoConsulta) {
 	       this.tipoConsulta = tipoConsulta;
 	   }
+
+	   public int getNumeroConsultorio() {
+        return numeroConsultorio;
+    }
+
+    public void setNumeroConsultorio(int numeroConsultorio) {
+        this.numeroConsultorio = numeroConsultorio;
+    }
 	}

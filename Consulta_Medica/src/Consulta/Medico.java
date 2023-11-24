@@ -5,14 +5,13 @@ public class Medico {
     private int codigoDoutor;
     private String nome;
     private String especialidade;
-    private int numeroConsultorio;
+    
 
     // Construtor
-    public Medico(int codigoDoutor, String nome, String especialidade, int numeroConsultorio) {
+    public Medico(int codigoDoutor, String nome, String especialidade) {
         this.codigoDoutor = codigoDoutor;
         this.nome = nome;
         this.especialidade = especialidade;
-        this.numeroConsultorio = numeroConsultorio;
     }
 
     // Getters e setters
@@ -40,11 +39,5 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-    public int getNumeroConsultorio() {
-        return numeroConsultorio;
-    }
-
-    public void setNumeroConsultorio(int numeroConsultorio) {
-        this.numeroConsultorio = numeroConsultorio;
-    }
+    
 }

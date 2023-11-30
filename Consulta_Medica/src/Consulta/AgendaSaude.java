@@ -3,8 +3,9 @@ package Consulta;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class AgendaSaude extends Medico {
+public class AgendaSaude {
 	   // Atributos
+	   private Medico medico;
 	   private LocalDate data;
 	   private LocalTime hora;
 	   private String tipoConsulta;
@@ -12,9 +13,9 @@ public class AgendaSaude extends Medico {
 	   
 
 	   // Construtor
-	   public AgendaSaude(int codigoDoutor, String nome, String especialidade, LocalDate data,
+	   public AgendaSaude(Medico medico, LocalDate data,
 	   LocalTime hora, String tipoConsulta, int numeroConsultorio) {
-			super(codigoDoutor, nome, especialidade);
+			this.medico = medico;
 	    	this.data = data;
 	    	this.hora = hora;
 	    	this.tipoConsulta = tipoConsulta;
@@ -22,6 +23,10 @@ public class AgendaSaude extends Medico {
 	   }
 
 	   // Getters e setters
+	   public Medico getMedico(){
+			return medico;
+	   }
+
 	   public LocalDate getData() {
 	       return data;
 	   }
@@ -40,6 +45,10 @@ public class AgendaSaude extends Medico {
 
 	   public String getTipoConsulta() {
 	       return tipoConsulta;
+	   }
+
+	   public void setMedico(Medico medico){
+			this.medico = medico;
 	   }
 
 	   public void setTipoConsulta(String tipoConsulta) {

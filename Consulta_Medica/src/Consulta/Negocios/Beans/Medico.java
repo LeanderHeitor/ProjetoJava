@@ -1,4 +1,4 @@
-package Consulta;
+package Consulta.Negocios.Beans;
 
 public class Medico {
     // Atributos

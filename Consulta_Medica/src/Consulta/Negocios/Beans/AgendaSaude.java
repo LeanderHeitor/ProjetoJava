@@ -1,42 +1,45 @@
 package Consulta.Negocios.Beans;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class AgendaSaude {
 	   // Atributos
-	   private int codigoDoutor;
-	   private String data;
-	   private String hora;
+	   private Medico medico;
+	   private LocalDate data;
+	   private LocalTime hora;
 	   private String tipoConsulta;
+	   private int numeroConsultorio;
+	   
 
 	   // Construtor
-	   public AgendaSaude(int codigoDoutor, String data, String hora, String tipoConsulta) {
-	       this.codigoDoutor = codigoDoutor;
-	       this.data = data;
-	       this.hora = hora;
-	       this.tipoConsulta = tipoConsulta;
+	   public AgendaSaude(Medico medico, LocalDate data,
+	   LocalTime hora, String tipoConsulta, int numeroConsultorio) {
+			this.medico = medico;
+	    	this.data = data;
+	    	this.hora = hora;
+	    	this.tipoConsulta = tipoConsulta;
+			this.numeroConsultorio = numeroConsultorio;
 	   }
 
 	   // Getters e setters
-	   public int getCodigoDoutor() {
-	       return codigoDoutor;
+	   public Medico getMedico(){
+			return medico;
 	   }
 
-	   public void setCodigoDoutor(int codigoDoutor) {
-	       this.codigoDoutor = codigoDoutor;
-	   }
-
-	   public String getData() {
+	   public LocalDate getData() {
 	       return data;
 	   }
 
-	   public void setData(String data) {
+	   public void setData(LocalDate data) {
 	       this.data = data;
 	   }
 
-	   public String getHora() {
+	   public LocalTime getHora() {
 	       return hora;
 	   }
 
-	   public void setHora(String hora) {
+	   public void setHora(LocalTime hora) {
 	       this.hora = hora;
 	   }
 
@@ -44,7 +47,19 @@ public class AgendaSaude {
 	       return tipoConsulta;
 	   }
 
+	   public void setMedico(Medico medico){
+			this.medico = medico;
+	   }
+
 	   public void setTipoConsulta(String tipoConsulta) {
 	       this.tipoConsulta = tipoConsulta;
 	   }
+
+	   public int getNumeroConsultorio() {
+        return numeroConsultorio;
+    }
+
+    public void setNumeroConsultorio(int numeroConsultorio) {
+        this.numeroConsultorio = numeroConsultorio;
+    }
 	}

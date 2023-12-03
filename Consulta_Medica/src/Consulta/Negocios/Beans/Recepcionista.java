@@ -1,3 +1,4 @@
+
 package Consulta.Negocios.Beans;
 
 public class Recepcionista {
@@ -12,6 +13,27 @@ public class Recepcionista {
 	       this.turno = turno; 
 	       this.contato = contato; 
 	   }
+	
+	// Métodos de marcação, desmarcação e visualização de consultas
+    
+    public void marcarConsulta(Paciente paciente, LocalDate dataConsulta) {
+        // Marcação de consulta
+        
+        System.out.println("Consulta marcada para " + paciente.getNome() + " em " + dataConsulta);
+    }
+
+    public void desmarcarConsulta(Paciente paciente, LocalDate dataConsulta) {
+        // Desmarcação da consulta
+        
+        System.out.println("Consulta desmarcada para " + paciente.getNome() + " em " + dataConsulta);
+    }
+
+    public void verConsultas() {
+        // Visualizar consultas marcadas
+        
+        System.out.println("Consultas agendadas:");
+       
+    }
 
 	   // Getters e setters
 	   public int getCodigoFuncionario() { 

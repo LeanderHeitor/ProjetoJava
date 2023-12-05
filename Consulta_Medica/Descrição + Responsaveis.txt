@@ -3,7 +3,7 @@ O projeto é um sistema de consulta médica que agiliza o atendimento dos pacien
 
 --------------------------------------------------------------------------------------------------------
 Responsaveis pelas classes principais
-Antonio Guedes - Médico
+Antonio Guedes - Médico + Agenda Saúde
 Guilherme Ribas - Recepcionista
-Heitor Leander - Paciente
+Heitor Leander - Paciente + Consulta
 Rodrigo Luz - Enfermeiro

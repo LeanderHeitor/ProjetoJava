@@ -42,5 +42,4 @@ public class ControladorConsultaInfo {
         return repositorioConsultaInfo.buscarConsulta(codigoConsulta);
     }
 
-    // Adicione mais métodos conforme necessário para as operações específicas de ConsultaInfo
 }

@@ -1,17 +1,17 @@
 package Consulta.Negocios.Beans;
 
-public class Enfermeira {
+public class Enfermeiro {
     // Atributos
     private String especialidade;
     private int codigo;
 
-    public Enfermeira(String especialidade, int codigo) {
+    public Enfermeiro(String especialidade, int codigo) {
         this.especialidade = especialidade;
         this.codigo = codigo;
     }
 
     public void realizarProcedimento(String nomePaciente, String procedimento) {
-        System.out.println("Enfermeira está realizando o seqguinte procedimento: " + procedimento +
+        System.out.println("Enfermeiro está realizando o seqguinte procedimento: " + procedimento +
                 " para o paciente " + nomePaciente);
     }
 
@@ -34,6 +34,6 @@ public class Enfermeira {
 
     // Método para exibir informações da enfermeira
     public void exibirInformacoes() {
-        System.out.println("     *Enfermeira* \nEspecialidade: " + especialidade + "\nCódigo: " + codigo);
+        System.out.println("     *Enfermeiro* \nEspecialidade: " + especialidade + "\nCódigo: " + codigo);
     }
 }

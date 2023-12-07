@@ -2,10 +2,11 @@ package Consulta.Negocios;
 import Consulta.Negocios.Beans.AgendaSaude;
 import java.util.List;
 
-public class ControladorAgendaSaúde {
+public class ControladorAgendaSaude {
     private List<AgendaSaude> agendaSaudeList;
+    
 
-    public ControladorAgendaSaúde(List<AgendaSaude> agendaSaudeList) {
+    public ControladorAgendaSaude(List<AgendaSaude> agendaSaudeList) {
         this.agendaSaudeList = agendaSaudeList;
     }
 

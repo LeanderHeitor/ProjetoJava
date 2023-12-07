@@ -1,5 +1,6 @@
 package Consulta;
 import Consulta.Negocios.Beans.Paciente;
+import Consulta.Negocios.ControladorAgendaSaude;
 import Consulta.Negocios.ControladorMedico;
 import Consulta.Negocios.Beans.AgendaSaude;
 import Consulta.Negocios.Beans.ConsultaInfo;
@@ -46,6 +47,7 @@ public class Programa {
         listaDeMedicos.add(medico10);
         listaDeMedicos.add(medico11);
         listaDeMedicos.add(medico12);
+
         // Iterar sobre a lista e cadastrar os médicos
         for (Medico medico : listaDeMedicos) {
             controlador.cadastrarMedico(medico);
@@ -71,7 +73,28 @@ public class Programa {
         AgendaSaude agendaMedico12 = new AgendaSaude(12, "Laura Fernandes", "Oftalmologia", dataExemplo, horaExemplo, tipoConsultaExemplo, numeroConsultorioExemplo);
 
         //Adicionar as agendasaúdes para o reposiitório
+        List<AgendaSaude> listadeAgendaSaudes = new ArrayList<>();
 
+        // Adicione os médicos à lista
+        listadeAgendaSaudes.add(agendaMedico1);
+        listadeAgendaSaudes.add(agendaMedico2);
+        listadeAgendaSaudes.add(agendaMedico3);
+        listadeAgendaSaudes.add(agendaMedico4);
+        listadeAgendaSaudes.add(agendaMedico5);
+        listadeAgendaSaudes.add(agendaMedico6);
+        listadeAgendaSaudes.add(agendaMedico7);
+        listadeAgendaSaudes.add(agendaMedico8);
+        listadeAgendaSaudes.add(agendaMedico9);
+        listadeAgendaSaudes.add(agendaMedico10);
+        listadeAgendaSaudes.add(agendaMedico11);
+        listadeAgendaSaudes.add(agendaMedico12);
+        
+        // Adicionando a agenda de saúde para cada médico
+        for (Medico medico : listaDeMedicos) {
+        AgendaSaude agendaMedico = new AgendaSaude(numeroConsultorioExemplo, tipoConsultaExemplo, tipoConsultaExemplo, dataExemplo, horaExemplo, tipoConsultaExemplo, numeroConsultorioExemplo);
+        listadeAgendaSaudes.add(agendaMedico);
+        }
+        
         // Exemplo de uso da classe Paciente
         Paciente paciente = new Paciente(1, "João", "01/01/1990", "Plano Ouro", "01/01/2024");
 

@@ -1,9 +1,7 @@
-/*
 package Consulta.Negocios;
 
 import Consulta.Dados.RepositorioMedico;
 import Consulta.Negocios.Beans.Medico;
-import java.util.List;
 
 public class ControladorMedico {
     private RepositorioMedico repositorioMedico;
@@ -34,4 +32,3 @@ public class ControladorMedico {
 
     
 }
-*/

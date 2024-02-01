@@ -1,36 +1,53 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-public class Main {
-    public static void main(String[] args) {
-        // Criar uma lista para armazenar enfermeiros
-        List<Enfermeiro> enfermeiroo = new ArrayList<>();
 
-        // Criar uma lista para armazenar pacientes
-        List<Paciente> pacientes = new ArrayList<>();
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
+public class EnfermeiroRepository {
 
-        // Exemplo de enfermeiros
-        enfermeiroo.add(new Enfermeiro("Cardiologia", 2311));
-        enfermeiroo.add(new Enfermeiro("Pediatria", 4536));
-        enfermeiroo.add(new Enfermeiro("Ortopedia", 0475));
-        enfermeiroo.add(new Enfermeiro("Ginecologia", 8162));
-        enfermeiroo.add(new Enfermeiro("Cirurgia", 5948));
-        enfermeiroo.add(new Enfermeiro("Oncologia", 7362));
+    private List<Enfermeiro> enfermeiros;
 
-        // Iterar sobre a lista de enfermeiros e associar um enfermeiro a cada paciente
-        for (int i = 0; i < enfermeiros.size(); i++) {
-            Enfermeiro enfermeiro = enfermeiros.get(i);
-            Paciente paciente = pacientes.get(i);
+    public EnfermeiroRepository() {
+        this.enfermeiros = new ArrayList<>();
+    }
 
-            enfermeiro.exibirInformacoes();
-            enfermeiro.realizarProcedimento(paciente.nome, "Procedimento específico para " + enfermeiro.getEspecialidade());
-            System.out.println(); // Adiciona uma linha em branco entre as informações de enfermeiros
+    public void adicionarEnfermeiro(Enfermeiro enfermeiro) {
+        enfermeiro.setCodigo(enfermeiros.size() + 1);
+        enfermeiros.add(enfermeiro);
+    }
+
+    public void removerEnfermeiro(int codigoEnfermeiro) {
+        Iterator<Enfermeiro> iterator = enfermeiros.iterator();
+        while (iterator.hasNext()) {
+            Enfermeiro enfermeiro = iterator.next();
+            if (enfermeiro.getCodigo() == codigoEnfermeiro) {
+                iterator.remove();
+                break;
+            }
         }
     }
-}
 
+    public List<Enfermeiro> listarEnfermeiros() {
+        return new ArrayList<>(enfermeiros);
+    }
+
+    public static void main(String[] args) {
+        EnfermeiroRepository repository = new EnfermeiroRepository();
+
+        // Exemplo de enfermeiros
+        repository.adicionarEnfermeiro(new Enfermeiro("Cardiologia", 0));
+        repository.adicionarEnfermeiro(new Enfermeiro("Pediatria", 0));
+        repository.adicionarEnfermeiro(new Enfermeiro("Ortopedia", 0));
+        repository.adicionarEnfermeiro(new Enfermeiro("Ginecologia", 0));
+        repository.adicionarEnfermeiro(new Enfermeiro("Cirurgia", 0));
+        repository.adicionarEnfermeiro(new Enfermeiro("Oncologia", 0));
+
+        System.out.println("Enfermeiros cadastrados:");
+        repository.listarEnfermeiros().forEach(Enfermeiro::exibirInformacoes);
+
+        // Remover um enfermeiro (substitua o código pelo desejado)
+        repository.removerEnfermeiro(1);
+
+        System.out.println("\nEnfermeiros após remoção:");
+        repository.listarEnfermeiros().forEach(Enfermeiro::exibirInformacoes);
+    }
+}

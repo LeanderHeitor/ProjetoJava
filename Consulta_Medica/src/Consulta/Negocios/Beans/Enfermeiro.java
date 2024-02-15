@@ -33,6 +33,6 @@ public class Enfermeiro {
 
     // Método para exibir informações da enfermeira
     public void exibirInformacoes() {
-        System.out.println("     *Enfermeiro* \nEspecialidade: " + especialidade + "\nCódigo: " + codigo);
+        System.out.println("*Enfermeiro* \nEspecialidade: " + especialidade + "\nCódigo: " + codigo);
     }
 }

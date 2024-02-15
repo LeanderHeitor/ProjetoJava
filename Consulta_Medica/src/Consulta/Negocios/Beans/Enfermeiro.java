@@ -11,8 +11,7 @@ public class Enfermeiro {
     }
 
     public void realizarProcedimento(String nomePaciente, String procedimento) {
-        System.out.println("Enfermeiro está realizando o seqguinte procedimento: " + procedimento +
-                " para o paciente " + nomePaciente);
+        System.out.println("Enfermeiro está realizando o seqguinte procedimento: " + procedimento + " para o paciente " + nomePaciente);
     }
 
     // Métodos de acesso (getters e setters)

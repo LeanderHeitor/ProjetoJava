@@ -94,38 +94,47 @@ public class Programa {
         AgendaSaude agendaMedico = new AgendaSaude(numeroConsultorioExemplo, tipoConsultaExemplo, tipoConsultaExemplo, dataExemplo, horaExemplo, tipoConsultaExemplo, numeroConsultorioExemplo);
         listadeAgendaSaudes.add(agendaMedico);
         }
-        
-        // Criar uma lista para armazenar enfermeiros
-        List<Enfermeiro> enfermeiroo = new ArrayList<>();
+        // Uso da classe enfemiro e paciente 
+         // Criar uma lista para armazenar enfermeiros
+        List<Enfermeiro> enfermeiross = new ArrayList<>();
 
         // Criar uma lista para armazenar pacientes
-        List<Paciente> pacientes = new ArrayList<>();
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
-        pacientes.add(new Paciente());
+        List<Paciente>pacientes = new ArrayList<>();
+        pacientes.add(new Paciente(1, "Mateus", "02/07/1995", "Plano A", "01/01/2025"));
+        pacientes.add(new Paciente(2, "Gabriel", "09/02/1999", "Plano B", "15/06/2024"));
+        pacientes.add(new Paciente(3, "Ana", "09/08/2001", "Plano C", "03/02/2030"));
+        pacientes.add(new Paciente(4, "Pedro", "06/04/2004", "PLano D", "04/06/2034"));
+        pacientes.add(new Paciente(5, "Alef", "05/01/1998", "Plano E", "20/10/2027"));
+        pacientes.add(new Paciente(6, "Marcos", "30/11/1988", "Plano F", "15/09/2022"));
 
         // Exemplo de enfermeiros
-        enfermeiroo.add(new Enfermeiro("Cardiologia", 2311));
-        enfermeiroo.add(new Enfermeiro("Pediatria", 4536));
-        enfermeiroo.add(new Enfermeiro("Ortopedia", 0475));
-        enfermeiroo.add(new Enfermeiro("Ginecologia", 8162));
-        enfermeiroo.add(new Enfermeiro("Cirurgia", 5948));
-        enfermeiroo.add(new Enfermeiro("Oncologia", 7362));
+        enfermeiross.add(new Enfermeiro("Cardiologia", 2311));
+        enfermeiross.add(new Enfermeiro("Pediatria", 4536));
+        enfermeiross.add(new Enfermeiro("Ortopedia", 9075));
+        enfermeiross.add(new Enfermeiro("Ginecologia", 8162));
+        enfermeiross.add(new Enfermeiro("Cirurgia", 5948));
+        enfermeiross.add(new Enfermeiro("Oncologia", 7362));
+
+        EnfermeiroRepository repository = new EnfermeiroRepository();
 
         // Iterar sobre a lista de enfermeiros e associar um enfermeiro a cada paciente
-        for (int i = 0; i < enfermeiros.size(); i++) {
-            Enfermeiro enfermeiro = enfermeiros.get(i);
+        System.out.println("----------------------------------------------------------------------"); // Adiciona uma linha entre as informações de enfermeiros
+        System.out.println("      PLANILHA DE ATENDIMENTO e INFORMAÇÕES");
+        System.out.println("----------------------------------------------------------------------"); // Adiciona uma linha entre as informações de enfermeiros
+        for (int i = 0; i < Math.min(enfermeiross.size(), pacientes.size()); i++) {
+            Enfermeiro enfermeiro = enfermeiross.get(i);
             Paciente paciente = pacientes.get(i);
-
+            System.out.println("             Ficha do Paciente");
+            paciente.exibirInformacoes2();
+            System.out.println("             Informação do Enfermeiro");
             enfermeiro.exibirInformacoes();
-            enfermeiro.realizarProcedimento(paciente.nome, "Procedimento específico para " + enfermeiro.getEspecialidade());
-            System.out.println();
+            if (repository.listarEnfermeirosRemovidos().contains(enfermeiro)) {
+                System.out.println("Este enfermeiro foi removido e não pode realizar procedimentos.");
+            } else {
+                enfermeiro.realizarProcedimento(paciente.nome, "\nProcedimento específico em " + enfermeiro.getEspecialidade());
+            }
+            System.out.println("----------------------------------------------------------------------"); // Adiciona uma linha entre as informações de enfermeiros
         }
-    }
-}
         // Exemplo de uso da classe Paciente
         Paciente paciente = new Paciente(1, "João", "01/01/1990", "Plano Ouro", "01/01/2024");
 

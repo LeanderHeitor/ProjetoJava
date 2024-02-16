@@ -1,9 +1,6 @@
-package Consulta.Negocios.Beans;
-
 public class Enfermeiro {
-    // Atributos
-    private String especialidade;
-    private int codigo;
+    public String especialidade;
+    public int codigo;
 
     public Enfermeiro(String especialidade, int codigo) {
         this.especialidade = especialidade;
@@ -11,10 +8,13 @@ public class Enfermeiro {
     }
 
     public void realizarProcedimento(String nomePaciente, String procedimento) {
-        System.out.println("Enfermeiro está realizando o seqguinte procedimento: " + procedimento + " para o paciente " + nomePaciente);
+        if (nomePaciente.equals("Ana")) {
+            System.out.println("Enfermeiro está realizando o seguinte procedimento: " + procedimento + " para a paciente " + nomePaciente);
+        } else {
+            System.out.println("Enfermeiro está realizando o seguinte procedimento: " + procedimento + " para o paciente " + nomePaciente);
+        }
     }
 
-    // Métodos de acesso (getters e setters)
     public String getEspecialidade() {
         return especialidade;
     }
@@ -33,6 +33,6 @@ public class Enfermeiro {
 
     // Método para exibir informações da enfermeira
     public void exibirInformacoes() {
-        System.out.println("*Enfermeiro* \nEspecialidade: " + especialidade + "\nCódigo: " + codigo);
+        System.out.println("Especialidade: " + getEspecialidade() + "\nCódigo: " + getCodigo());
     }
 }

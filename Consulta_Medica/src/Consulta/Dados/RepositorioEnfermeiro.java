@@ -5,25 +5,37 @@ import java.util.List;
 public class EnfermeiroRepository {
 
     private List<Enfermeiro> enfermeiros;
+    private List<Enfermeiro> enfermeirosRemovidos;
+    private String codigo;
 
     public EnfermeiroRepository() {
         this.enfermeiros = new ArrayList<>();
+        this.enfermeirosRemovidos = new ArrayList<>();
     }
 
-    public void adicionarEnfermeiro(Enfermeiro enfermeiro) {
-        enfermeiro.setCodigo(enfermeiros.size() + 1);
+    public void adicionarEnfermeiroo(Enfermeiro enfermeiro) {
         enfermeiros.add(enfermeiro);
     }
 
-    public void removerEnfermeiro(int codigoEnfermeiro) {
+    public Enfermeiro removerEnfermeiro(int codigoEnfermeiro) {
         Iterator<Enfermeiro> iterator = enfermeiros.iterator();
         while (iterator.hasNext()) {
             Enfermeiro enfermeiro = iterator.next();
             if (enfermeiro.getCodigo() == codigoEnfermeiro) {
                 iterator.remove();
-                break;
+                enfermeirosRemovidos.add(enfermeiro);
+                return enfermeiro;
             }
         }
+        return null;
+    }
+
+    public List<String> listarEnfermeirosRemovidos() {
+        List<String> informarEnfermeirosRemovidos = new ArrayList<>();
+        for (Enfermeiro enfermeiro : enfermeirosRemovidos) {
+            informarEnfermeirosRemovidos.add("\nEspecialidade: " + enfermeiro.getEspecialidade() + "\nCódigo: " + enfermeiro.getCodigo());
+        }
+        return informarEnfermeirosRemovidos;
     }
 
     public List<Enfermeiro> listarEnfermeiros() {
@@ -34,20 +46,33 @@ public class EnfermeiroRepository {
         EnfermeiroRepository repository = new EnfermeiroRepository();
 
         // Exemplo de enfermeiros
-        repository.adicionarEnfermeiro(new Enfermeiro("Cardiologia", 0));
-        repository.adicionarEnfermeiro(new Enfermeiro("Pediatria", 0));
-        repository.adicionarEnfermeiro(new Enfermeiro("Ortopedia", 0));
-        repository.adicionarEnfermeiro(new Enfermeiro("Ginecologia", 0));
-        repository.adicionarEnfermeiro(new Enfermeiro("Cirurgia", 0));
-        repository.adicionarEnfermeiro(new Enfermeiro("Oncologia", 0));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Cardiologia", 2311));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Pediatria", 4536));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Ortopedia", 9075));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Ginecologia", 8162));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Cirurgia", 5948));
+        repository.adicionarEnfermeiroo(new Enfermeiro("Oncologia", 7362));
 
-        System.out.println("Enfermeiros cadastrados:");
-        repository.listarEnfermeiros().forEach(Enfermeiro::exibirInformacoes);
+        // Listar os enfermeiros cadastrados
+        List<Enfermeiro> enfermeirosCadastrados = repository.listarEnfermeiros();
+        System.out.println("\nLista de Todos Enfermeiros Cadastrados");
+        for (Enfermeiro enfermeiro : enfermeirosCadastrados) {
+            enfermeiro.exibirInformacoes();
+        }
 
         // Remover um enfermeiro (substitua o código pelo desejado)
-        repository.removerEnfermeiro(1);
+        repository.removerEnfermeiro(2311);
+        repository.removerEnfermeiro(9075);
 
-        System.out.println("\nEnfermeiros após remoção:");
-        repository.listarEnfermeiros().forEach(Enfermeiro::exibirInformacoes);
+        System.out.println("\nLista dos Enfermeiros Removidos");
+        for (String informarEnfermeiroRemovido : repository.listarEnfermeirosRemovidos()) {
+            System.out.println(informarEnfermeiroRemovido);
+        }
+
+        // Listar os enfermeiros após a remoção
+        System.out.println("\nLista dos Enfermeiros Atuais");
+        for (Enfermeiro enfermeiroo : repository.listarEnfermeiros()) {
+            enfermeiroo.exibirInformacoes();
+        }
     }
 }
